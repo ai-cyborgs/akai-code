@@ -6,9 +6,7 @@ const manifest: chrome.runtime.ManifestV3 = {
   version: packageJson.version,
   description: packageJson.description,
   options_page: "src/pages/options/index.html",
-  permissions: [
-    "activeTab"
-  ],
+  permissions: ["activeTab", "tabs"],
   background: { service_worker: "src/pages/background/index.js" },
   action: {
     default_popup: "src/pages/popup/index.html",
@@ -22,8 +20,9 @@ const manifest: chrome.runtime.ManifestV3 = {
   },
   content_scripts: [
     {
-      matches: ["https://*.twitter.com/*"],
+      matches: ["https://twitter.com/*"],
       js: ["src/pages/content/index.js"],
+      run_at: "document_start",
       css: ["assets/css/contentStyle.chunk.css"],
     },
   ],
