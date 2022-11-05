@@ -1774,9 +1774,9 @@
     "is-date-object" "^1.0.1"
     "is-symbol" "^1.0.2"
 
-"esbuild-linux-64@0.15.9":
-  "integrity" "sha512-4RXjae7g6Qs7StZyiYyXTZXBlfODhb1aBVAjd+ANuPmMhWthQilWo7rFHwJwL7DQu1Fjej2sODAVwLbcIVsAYQ=="
-  "resolved" "https://registry.npmmirror.com/esbuild-linux-64/-/esbuild-linux-64-0.15.9.tgz"
+"esbuild-windows-64@0.15.9":
+  "integrity" "sha512-zm7h91WUmlS4idMtjvCrEeNhlH7+TNOmqw5dJPJZrgFaxoFyqYG6CKDpdFCQXdyKpD5yvzaQBOMVTCBVKGZDEg=="
+  "resolved" "https://registry.npmmirror.com/esbuild-windows-64/-/esbuild-windows-64-0.15.9.tgz"
   "version" "0.15.9"
 
 "esbuild@^0.15.6":
