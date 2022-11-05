@@ -1,5 +1,4 @@
-import { debug } from "console";
-import { useEffect } from "react";
+import axios from "axios";
 import bubble from "@assets/img/bubbles.png";
 
 export default function App() {
@@ -32,14 +31,14 @@ export default function App() {
   //   console.log("lololololololol");
   // });
 
-  function searchTweets() {
-    const container = document.querySelector(
-      "[aria-label='Timeline: Explore'] > div"
-    );
-    if (container) {
-      clearInterval();
-    }
-  }
+  // function searchTweets() {
+  //   const container = document.querySelector(
+  //     "[aria-label='Timeline: Explore'] > div"
+  //   );
+  //   if (container) {
+  //     clearInterval();
+  //   }
+  // }
 
   // let countTimer = 0;
   // counterInterval = window.setInterval(() => {
@@ -52,27 +51,53 @@ export default function App() {
   // });
 
   function addLinkElement(el) {
-    console.log("AddLinkElement");
+    // console.log("AddLinkElement");
     const temp = el.querySelector(".r-1wtj0ep");
 
-    console.log(temp);
+    // console.log(temp);
 
     const image = document.createElement("img");
     image.setAttribute("class", "expandButton");
     image.setAttribute("src", bubble);
     // image;
     if (!temp.querySelector(".expandButton")) {
-      console.log("DODAJE ELEMENT");
+      // console.log("DODAJE ELEMENT");
       image.innerHTML = "Check alternatives";
       const div = temp.children[temp.children.length - 1];
+      console.log(div);
       div.style.display = "flex";
       div.style.flexDirection = "row";
       image.addEventListener("click", (e) => {
         e.preventDefault();
+        const url = el.querySelector("a[dir='auto']").href;
         const divAlternatives = document.createElement("div");
         divAlternatives.classList.add("alternatives");
         el.parentElement.insertBefore(divAlternatives, el.nextSibling);
-
+        // axios
+        //   .get(`http://127.0.0.1:8090/twitt/twittCompare/?url=${url}`)
+        //   // axios({
+        //   //   method: "get",
+        //   //   url: `http://127.0.0.1:8090/twitter/twittCompare/?url=${url}`,
+        //   //   responseType: "json",
+        //   //   mode: "no-cors",
+        //   //   headers: {
+        //   //     "Access-Control-Allow-Origin": "*",
+        //   //     "Content-Type": "application/json",
+        //   //   },
+        //   // })
+        //   .then((res) => {
+        //     res.data.forEach((el) => {
+        //       console.log(el);
+        //       // axios.get(el).then((temp) => {
+        //       //   const element = document.createElement("iframe");
+        //       //   element.innerHTML = temp.data;
+        //       //   iframes.push(element);
+        //       //   div.insertBefore(element, div.firstChild);
+        //       // });
+        //     });
+        //   })
+        //   .catch((e) => console.error(`Coś nie działa: ${e.toString()}`));
+        console.log(url);
         // alert("siema");
       });
       div.insertBefore(image, div.firstChild);
@@ -85,8 +110,6 @@ export default function App() {
     );
 
     container.forEach(addLinkElement);
-
-    console.log(container);
   }, 1500);
 
   // function onContentChange() {}
